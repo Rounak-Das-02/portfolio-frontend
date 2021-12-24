@@ -19,7 +19,7 @@ const Blogs = () => {
 
     useEffect(()=>{
         const getData = async () => {
-            const _data = await axios.get("http://localhost:3000/blog/showfew/4");
+            const _data = await axios.get(`https://${process.env.REACT_APP_API_DOMAIN}/blog/showfew/4`);
             setFetchedData(_data.data)
         }
         getData()
