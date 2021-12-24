@@ -1,67 +1,68 @@
-import React from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react';
 
-const data = [
-    {
-        author_id : "1",
-        blogs : [
-            {
-            title: "Title 1",
-            slug : "Slug 1",
-            link : "Link 1",
-            date : Date().toString().slice(3,16)
-        },
-        {
-            title: "Title 1.1",
-            slug : "Slug 1.1",
-            link : "Link 1.1",
-            date : Date().toString().slice(3,16)
-        }
-    ]
-    },
-]
+
+interface StateProperties {
+        "_id": string,
+        "author_id": string,
+        "title": string,
+        "slug": string,
+        "link": string,
+        "date": string,
+}
+
 
 
 const Blogs = () => {
+
+    const [data, setFetchedData] = useState<StateProperties[]>([])
+
+    useEffect(()=>{
+        const getData = async () => {
+            const _data = await axios.get("http://localhost:3000/blog/showfew/4");
+            setFetchedData(_data.data)
+        }
+        getData()
+    }, [])
+
+
     return (
-        <div className="flex flex-col items-center w-full min-h-screen max-h-screen overflow-y-hidden font-Oxanium" id="blogs"> 
-            <div className="font-Oxanium text-9xl md:text-7xl">My Blogs</div>
+        <div className="flex flex-col items-center w-full min-h-screen overflow-y-hidden font-Oxanium" id="blogs"> 
+            <div className="font-Oxanium text-7xl md:text-9xl">My Blogs</div>
+            <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 gap-5">
             {
                 data.map((data) => {
                     return (
-                    <div className='w-full flex flex-col px-5'>
-                        {data.blogs.map((blog) => {
-                            return(
-                                <div className=' px-10 pt-10'>                         
-                                    <div className='flex flex-row justify-between mx-1 py-2 px-3 rounded-2xl bg-gradient-to-b from-indigo-300 to-indigo-50 opacity-75'>
-                                        <h1 className=''>{blog.title}</h1>
-                                        <h2 className=''>{blog.date}</h2>
-                                    </div>
-                                    <div className='py-5 mx-1 p-3'>
-                                        {blog.slug}<br></br>
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero laboriosam quae molestiae voluptatibus ab, nisi repudiandae. Mollitia sequi maiores rerum.
-                                    </div>
-                                    <div className='text-center'><a className='border-2 border-purple-300 p-1 rounded-lg text-purple-500 opacity-70 hover:text-purple-700 hover:opacity-100 duration-100 ease-in-out'>Read More ... </a></div>
+                    
+                        <div className=" w-full lg:max-w-full lg:flex shadow-xl">
+                                <div className="border-r border-t border-l border-gray-400 lg:border-r-0 lg:border-b lg:border-gray-400  h-48 lg:h-auto lg:w-48 flex-none bg-cover bg-gradient-to-r from-indigo-800 to-white rounded-t-2xl lg:rounded-t-none lg:rounded-l-2xl text-center overflow-hidden" title="Mountain">
+                                    
                                 </div>
+                                <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b-2xl lg:rounded-b-none lg:rounded-r-2xl p-4 flex flex-col justify-between leading-normal">
+                                    <div className="mb-8">
+                                        <p className="text-sm text-gray-600 flex items-center">
+                                            <svg className="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+                                            </svg>
+                                        </p>
+                                        <div className="text-gray-900 font-bold text-xl mb-2">{data.title}</div>
+                                        <p className="lg:h-40 lg:w-56 text-gray-700 text-base"></p>
+                                    </div>
+                                    <div className="flex items-center">
+                                    {/* <img className="w-10 h-10 rounded-full mr-4" src="/ben.png" alt="Avatar of Writer"/> */}
+                                    <div className="text-sm">
+                                        <p className="text-gray-900 leading-none">{data.title}</p>
+                                        <p className="text-gray-600">{new Date(Date.parse(data.date)).toString().slice(0,16)}</p>
+                                    </div>
+                                    </div>
+                                </div>
+                        </div>
+)}
+                )}
+            </div> 
 
-                            )
-                        })}  
-                                              
-                    </div>
-                    )
-                })
-            }
-            <div className='px-10 pt-10'>
-                <div className='w-full flex flex-col px-5'>
-                            <div className='p-10 flex flex-row justify-between bg-indigo-200 mx-1 py-2 px-3 rounded-2xl  bg-gradient-to-b from-indigo-200 to-indigo-50 opacity-75'>
-                                <h1 className=''>Random Title</h1>
-                                <h2 className=''>Dec 21 2021</h2>
-                            </div>
-                            <div className='py-5 mx-1 p-3 opacity-5 pb-0 mb-0'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, reprehenderit. Nostrum porro cum, aliquid temporibus sed delectus accusamus ad eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, adipisci quidem. Quo neque, ullam deleniti minima unde facere repellendus vitae?
-                            </div>
-                </div>
-            </div>
-            <a className={"text-white rounded-full bg-indigo-500 hover:bg-indigo-700 px-4 py-1.5 duration-200 ease-in-out"}> See More Blogs ... </a>
+            <a href="allblogs" className={"text-white rounded-full bg-indigo-500 hover:bg-indigo-700 px-4 py-1.5 duration-200 ease-in-out"}> See More Blogs ... </a>
+       
         </div>
     )
 }

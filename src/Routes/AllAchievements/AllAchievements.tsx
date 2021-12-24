@@ -1,0 +1,38 @@
+
+import parse  from 'html-react-parser';
+import Contact from '../../Contact';
+import  ResponsiveNavBar  from '../../Miscellaneous/newNav';
+import data from './achievements'
+
+
+const AllAchievements = () => {
+
+    return (
+        <div>
+            <ResponsiveNavBar></ResponsiveNavBar>
+            <div className="flex flex-col text-gray-900 items-center w-full font-Oxanium bg-gray-100 " id="blogs"> 
+                <div className="font-Oxanium lg:text-7xl md:text-5xl sm:text-3xl m-10">Achievements</div>
+                {
+                    data.map((data) => {
+                        return (
+                        <div className='w-full md:w-4/5 flex flex-col md:px-5 m-2'>
+                                <div className=' px-10 pt-10 rounded-full'>
+                                        <div className='flex flex-row justify-between mx-1 py-2 px-3 rounded-t-2xl bg-gradient-to-b from-gray-400 to-blue-0 opacity-75'>
+                                            <h1 className='md:text-3xl sm:text-sm'>{data.title}</h1>
+                                            <h2 className=''>{data.date}</h2>
+                                        </div>
+                                        <div className='py-5 mx-1 p-3 bg-indigo-0 rounded-b-lg shadow-lg' >{parse(data.description)}
+                                        </div>
+                                    </div>                                              
+                        </div>
+                        )
+                    })
+                }
+                <br></br>
+                <Contact></Contact>
+            </div>
+        </div>
+    )
+}
+
+export default AllAchievements;

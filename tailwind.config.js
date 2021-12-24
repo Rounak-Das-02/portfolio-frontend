@@ -10,7 +10,7 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: ['@tailwindcss/typography'],
   purge: {
     // Filenames to scan for classes
     content: [
