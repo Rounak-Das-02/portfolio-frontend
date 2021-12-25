@@ -7,10 +7,20 @@ module.exports = {
       fontFamily : {
         Oxanium : ["Oxanium", "cursive"],
       },
+      typography: (theme) => ({
+        DEFAULT : {
+          css : {
+            h1 : { color : theme('colors.red.800')}
+          },
+        },
+      }),
     },
   },
   variants: {},
   plugins: ['@tailwindcss/typography'],
+  corePlugins : {
+    preflight: true
+  },
   purge: {
     // Filenames to scan for classes
     content: [

@@ -2,6 +2,16 @@
 
 @tailwind base;
 
+@layer base {
+    h1 {
+        @apply text-4xl lg:text-5xl  
+    }
+
+    h2 {
+        @apply text-2xl lg:text-3xl
+    }
+}
+
 /* Your own custom base styles */
 
 /* Start purging... */

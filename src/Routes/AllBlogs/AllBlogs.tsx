@@ -21,9 +21,10 @@ const AllBlogs = () => {
 
     useEffect(()=>{
         const getData = async () => {
-            const _data = await axios.get(`https://${process.env.REACT_APP_API_DOMAIN}/blog/showall`);
-            setFetchedData(_data.data)
-        }
+            await axios.get(`https://${process.env.REACT_APP_API_DOMAIN}/blog/showall`).then((response) => {setFetchedData(response.data)}).catch((error) => {
+                if(error) return <div className="flex flex-col items-center w-full min-h-screen overflow-y-hidden font-Oxanium text-center" id="blogs"> Sorry! Cannot Fetch Blogs at the moment. Wait for sometime, or try refreshing</div>
+        })
+    }
         getData()
     }, [])
 

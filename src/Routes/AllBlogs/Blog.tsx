@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Contact from '../../Contact';
 import ResponsiveNavBar from '../../Miscellaneous/newNav';
 import parse from 'html-react-parser';
+import Contact from '../../Contact';
 var md = require('markdown-it')({
     html: true,
     linkify: true,
@@ -18,21 +18,23 @@ const Blog = () => {
     const [data, setFetchedData] = useState("")
     useEffect(()=>{
         const getData = async () => {
-            const _data = await axios.get("http://localhost:3000/blog/getBlog/"+id);
+            const _data = await axios.get(`https://${process.env.REACT_APP_API_DOMAIN}/blog/getBlog/`+id);
             const __data = await axios.get(_data.data.data.link);
-            console.log(__data.data)
             setFetchedData(__data.data)
         }
         getData()
     }, [])
 
-    console.log(md.render(data))
+    console.log(parse(data))
     return (
-       <div>
-        <ResponsiveNavBar></ResponsiveNavBar> 
-        <article className='prose prose-slate'>
+       <div className='bg-gray-100'>
+        <div className="pb-28">
+                <ResponsiveNavBar></ResponsiveNavBar>
+            </div>
+        <article className='mx-10 md:mx-80 font-Oxanium no-tailwindcss-base'>
             {parse(md.render(data))}
         </article>
+        <Contact></Contact>
         </div>
     )
 }

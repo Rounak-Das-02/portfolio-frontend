@@ -13,7 +13,7 @@ function LandingPage() {
   let [nav, setNav] = useState(<NavBar/>);
 
   useEffect(() => {
-    const handleResizeWindow = () => {if(window.innerWidth < 1024)setNav(<ResponsiveNavBar/>);else setNav(<NavBar/>)}
+    const handleResizeWindow = () => {if(window.innerWidth < 1024)setNav(<div className="pb-10"><ResponsiveNavBar/></div>);else setNav(<NavBar/>)}
      // subscribe to window resize event "onComponentDidMount"
      window.addEventListener("resize", handleResizeWindow);
      return () => {
