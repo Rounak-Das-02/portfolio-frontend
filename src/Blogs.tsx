@@ -29,7 +29,7 @@ const Blogs = () => {
 
     return (
         <div className="flex flex-col items-center w-full min-h-screen overflow-y-hidden font-Oxanium" id="blogs"> 
-            <div className="font-Oxanium text-7xl md:text-9xl">My Blogs</div>
+            <div className="font-Oxanium text-7xl md:text-8xl">My Blogs</div>
             <div className="p-10 flex flex-wrap -m-3 w-full">
             {
                 data.map((data) => {

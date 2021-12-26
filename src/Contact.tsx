@@ -6,7 +6,7 @@ import { SocialIcons } from "./Navigation/navbar";
     return (
 
 <div className="flex flex-col justify-center items-center px-8 min-h-screen max-h-max mt-20" id = "contact">
-      <div className="font-Oxanium text-7xl text-center lg:text-9xl p-5 rounded-full">Wanna get in touch?</div>
+      <div className="font-Oxanium text-7xl text-center lg:text-8xl p-5 rounded-full">Wanna get in touch?</div>
       <div
         className="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-2xl">
         <div className="flex flex-col justify-between">

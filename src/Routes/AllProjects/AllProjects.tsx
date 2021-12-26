@@ -20,7 +20,7 @@ const AllProjects = () => {
                                 <div className=' px-10 pt-10 rounded-full'>                         
                                         <div className='flex flex-col md:flex-row justify-between mx-1 py-2 px-3 rounded-t-2xl bg-gradient-to-b from-gray-400 to-blue-0 opacity-75'>
                                             <h1 className='text-3xl'>{data.title}</h1>
-                                            <h2 className=''>{data.date}</h2>
+                                            <h2 className='text-sm md:text-xl'>{data.date}</h2>
                                         </div>
                                         <div className='text-lg py-5 mx-1 p-3 bg-indigo-0 rounded-b-lg shadow-lg'>{parse(data.description)}
                                         </div>

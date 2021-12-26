@@ -5,7 +5,8 @@ TO-DO:
 - [x] Individual Blog Page
 - [x] **Render Markdown in Tailwind CSS** (took me hours to figure out what was wrong!)
 - [x] API calls to blogs
-- [ ] Deploy to Linode and add reverse proxy 
+- [x] Deploy to Linode and add reverse proxy to NGINX
+- [x] Enabled CORS
 - [ ] Dark Mode
 - [ ] Add Loading Spinners (Could've done it, but too lazy right now)
 - [ ] Set up some sort of API Gateway for more secure api calls (backend job)
