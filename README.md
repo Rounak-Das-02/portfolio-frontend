@@ -7,6 +7,7 @@ TO-DO:
 - [x] API calls to blogs
 - [x] Deploy to Linode and add reverse proxy to NGINX
 - [x] Enabled CORS
+- [x] Added Lazy Loading to all Routing Components.
 - [ ] Dark Mode
 - [ ] Add Loading Spinners (Could've done it, but too lazy right now)
 - [ ] Set up some sort of API Gateway for more secure api calls (backend job)
