@@ -52,6 +52,7 @@ const Navbar = ({ menuOpen, setMenuOpen }) => (
 const MobileMenu = ({ children }) => (
   <nav className="p-4 flex flex-col space-y-3 md:hidden">
     {children}
+    <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/Rounak-Das-02/Resume/master/resume.pdf" className="no-underline text-gray-100 lg:text-gray-300 font-semibold hover:bg-gray-700 rounded-xl p-2">~/Resume</a>
   </nav>
 );
 
